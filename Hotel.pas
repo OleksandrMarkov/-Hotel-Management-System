@@ -28,7 +28,7 @@ type
     Button6: TButton;
     Button3: TButton;
     Button4: TButton;
-    Button5: TButton;
+    btnBS: TButton;
     btn7: TButton;
     btn8: TButton;
     btn9: TButton;
@@ -92,8 +92,14 @@ type
     cmbGender: TComboBox;
     cmbIdentity: TComboBox;
     procedure NumberClick(Sender: TObject);
+    procedure btnBSClick(Sender: TObject);
   private
     { Private declarations }
+    firstNum, secondNum, answer : string;
+    op : char;
+
+
+
   public
     { Public declarations }
   end;
@@ -104,6 +110,12 @@ var
 implementation
 
 {$R *.dfm}
+
+// remove last symbol
+procedure TForm1.btnBSClick(Sender: TObject);
+begin
+  txtEDisplay.Text := copy(txtEDisplay.Text, 1, length(txtEDisplay.Text)- 1);
+end;
 
 procedure TForm1.NumberClick(Sender: TObject);
   var btn: TButton;

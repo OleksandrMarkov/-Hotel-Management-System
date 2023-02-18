@@ -202,11 +202,12 @@ object Form1: TForm1
       ParentFont = False
       TabOrder = 3
     end
-    object Button5: TButton
+    object btnBS: TButton
       Left = 10
       Top = 39
       Width = 75
       Height = 41
+      ParentCustomHint = False
       Caption = 'back'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -215,6 +216,7 @@ object Form1: TForm1
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 4
+      OnClick = btnBSClick
     end
     object btn7: TButton
       Left = 10
