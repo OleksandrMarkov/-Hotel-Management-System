@@ -84,49 +84,49 @@ object Form1: TForm1
     Color = cl3DLight
     ParentBackground = False
     TabOrder = 1
-    object Label1: TLabel
-      Left = 72
-      Top = 8
-      Width = 207
-      Height = 25
-      Caption = 'Currency Conventor'
+    object lblConvert: TLabel
+      Left = 112
+      Top = 116
+      Width = 123
+      Height = 29
+      Alignment = taCenter
+      Caption = 'lblConvert'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -21
+      Font.Height = -24
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object Label2: TLabel
-      Left = 112
-      Top = 114
-      Width = 99
-      Height = 23
-      Caption = 'lblConvert'
+    object txtEConvert: TEdit
+      Left = 64
+      Top = 48
+      Width = 217
+      Height = 31
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -19
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
+      TabOrder = 1
     end
-    object Edit1: TEdit
-      Left = 64
-      Top = 48
-      Width = 217
-      Height = 21
-      TabOrder = 0
-    end
-    object ComboBox1: TComboBox
+    object cmbConvert: TComboBox
       Left = 64
       Top = 79
       Width = 217
-      Height = 21
-      TabOrder = 1
+      Height = 31
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 2
     end
     object btnConvert: TButton
-      Left = 24
-      Top = 143
+      Left = 32
+      Top = 151
       Width = 113
       Height = 41
       Caption = 'Convert'
@@ -136,11 +136,12 @@ object Form1: TForm1
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabOrder = 2
+      TabOrder = 3
+      OnClick = btnConvertClick
     end
     object btnClose: TButton
       Left = 200
-      Top = 143
+      Top = 151
       Width = 113
       Height = 41
       Caption = 'Close'
@@ -150,7 +151,23 @@ object Form1: TForm1
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabOrder = 3
+      TabOrder = 4
+      OnClick = btnCloseClick
+    end
+    object Panel10: TPanel
+      Left = 0
+      Top = -4
+      Width = 369
+      Height = 223
+      Caption = 'Currency Converter'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -29
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 0
+      OnClick = Panel10Click
     end
   end
   object Panel3: TPanel

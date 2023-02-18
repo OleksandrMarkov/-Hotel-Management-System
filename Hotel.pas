@@ -1,4 +1,4 @@
-unit Hotel;
+﻿unit Hotel;
 
 interface
 
@@ -18,10 +18,8 @@ type
     Panel7: TPanel;
     Panel8: TPanel;
     CalendarView1: TCalendarView;
-    Label1: TLabel;
-    Edit1: TEdit;
-    ComboBox1: TComboBox;
-    Label2: TLabel;
+    txtEConvert: TEdit;
+    cmbConvert: TComboBox;
     btnConvert: TButton;
     btnClose: TButton;
     txtEDisplay: TEdit;
@@ -93,6 +91,8 @@ type
     cmbIdentity: TComboBox;
     Button1: TButton;
     btnExit: TButton;
+    Panel10: TPanel;
+    lblConvert: TLabel;
     procedure NumberClick(Sender: TObject);
     procedure btnBSClick(Sender: TObject);
     procedure btnCCClick(Sender: TObject);
@@ -107,10 +107,22 @@ type
     procedure FormCreate(Sender: TObject);
     procedure CalendarView1Change(Sender: TObject);
     procedure btnExitClick(Sender: TObject);
+    procedure Panel10Click(Sender: TObject);
+    procedure btnCloseClick(Sender: TObject);
+
+    procedure currencyConverter; // ctrl + shift + c
+    procedure reset;
+    procedure btnConvertClick(Sender: TObject);
   private
     { Private declarations }
+
+    // Calculator variables
     firstNum, secondNum, answer : string;
     op : char;
+
+    // Currency Converter varables
+    USDollar, brazilianReal, canadianDollar, indonesianRupiah, indianRuppee,
+    philippinePeso: currency;
 
 
 
@@ -158,6 +170,18 @@ begin
   first := '';
   second := '';
 
+end;
+
+procedure TForm1.btnCloseClick(Sender: TObject);
+begin
+  lblConvert.Visible := false;
+  Panel10.Visible := true;
+  reset;
+end;
+
+procedure TForm1.btnConvertClick(Sender: TObject);
+begin
+  currencyConverter;
 end;
 
 procedure TForm1.btnDivideClick(Sender: TObject);
@@ -245,11 +269,57 @@ begin
 
 end;
 
+procedure TForm1.currencyConverter;
+var britishPound: Double;
+begin
+  britishPound := StrToFloat(txtEConvert.Text);
+
+  USDollar := 1.2;
+  brazilianReal := 6.22;
+  canadianDollar := 1.62;
+  indonesianRupiah := 18265.93;
+  indianRuppee := 99.68;
+  philippinePeso := 66.87;
+
+  if (cmbConvert.Text = 'USA') then
+  begin
+    lblConvert.Caption := '$' + (floattostr(britishPound * USDollar));
+  end
+
+  else if (cmbConvert.Text = 'Philippines') then
+  begin
+    lblConvert.Caption := '₱' + (floattostr(britishPound * philippinePeso));
+  end
+
+  else if (cmbConvert.Text = 'Indonesia') then
+  begin
+    lblConvert.Caption := 'Rp' + (floattostr(britishPound * indonesianRupiah));
+  end
+
+  else if (cmbConvert.Text = 'India') then
+  begin
+    lblConvert.Caption := '₹' + (floattostr(britishPound * indianRuppee));
+  end
+
+  else if (cmbConvert.Text = 'Canada') then
+  begin
+    lblConvert.Caption := 'C$' + (floattostr(britishPound * canadianDollar));
+  end
+
+  else if (cmbConvert.Text = 'Brazilia') then
+  begin
+    lblConvert.Caption := 'R$' + (floattostr(britishPound * brazilianReal));
+  end;
+end;
+
 procedure TForm1.FormCreate(Sender: TObject);
   var currentDate : TDateTime;
 begin
+  lblConvert.Visible := false;
   currentDate := Now;
   txtECurrentDate.Text := (DateToStr(currentDate));
+
+  reset;
 
 end;
 
@@ -267,6 +337,28 @@ begin
     txtEDisplay.Text := txtEDisplay.Text + btn.Caption;
   end;
 
+end;
+
+procedure TForm1.Panel10Click(Sender: TObject);
+begin
+  Panel10.Visible := false;
+  lblConvert.Visible := true;
+end;
+
+procedure TForm1.reset;
+begin
+  cmbConvert.Items.Clear;
+  cmbConvert.Text := 'Choose one...';
+
+  cmbConvert.Items.Add('Brazilia');
+  cmbConvert.Items.Add('Canada');
+  cmbConvert.Items.Add('India');
+  cmbConvert.Items.Add('Indonesia');
+  cmbConvert.Items.Add('Philippines');
+  cmbConvert.Items.Add('USA');
+
+  lblConvert.Caption := '';
+  txtEConvert.Text := '';
 end;
 
 end.
