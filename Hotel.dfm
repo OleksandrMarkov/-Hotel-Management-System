@@ -145,17 +145,24 @@ object Form1: TForm1
     Color = cl3DLight
     ParentBackground = False
     TabOrder = 2
-    object Edit2: TEdit
-      Left = 8
-      Top = 4
+    object txtEDisplay: TEdit
+      Left = 9
+      Top = 5
       Width = 321
-      Height = 21
+      Height = 31
+      Alignment = taRightJustify
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
-      Text = 'Edit1'
+      Text = '0'
     end
     object Button6: TButton
       Left = 253
-      Top = 31
+      Top = 39
       Width = 75
       Height = 41
       Caption = #177
@@ -169,7 +176,7 @@ object Form1: TForm1
     end
     object Button3: TButton
       Left = 172
-      Top = 31
+      Top = 39
       Width = 75
       Height = 41
       Caption = 'C'
@@ -183,7 +190,7 @@ object Form1: TForm1
     end
     object Button4: TButton
       Left = 91
-      Top = 31
+      Top = 39
       Width = 75
       Height = 41
       Caption = 'CE'
@@ -197,7 +204,7 @@ object Form1: TForm1
     end
     object Button5: TButton
       Left = 10
-      Top = 31
+      Top = 39
       Width = 75
       Height = 41
       Caption = 'back'
@@ -209,9 +216,9 @@ object Form1: TForm1
       ParentFont = False
       TabOrder = 4
     end
-    object Button7: TButton
+    object btn7: TButton
       Left = 10
-      Top = 78
+      Top = 86
       Width = 75
       Height = 41
       Caption = '7'
@@ -222,10 +229,11 @@ object Form1: TForm1
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 5
+      OnClick = NumberClick
     end
-    object Button8: TButton
+    object btn8: TButton
       Left = 91
-      Top = 78
+      Top = 86
       Width = 75
       Height = 41
       Caption = '8'
@@ -236,10 +244,11 @@ object Form1: TForm1
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 6
+      OnClick = NumberClick
     end
-    object Button9: TButton
+    object btn9: TButton
       Left = 172
-      Top = 78
+      Top = 86
       Width = 75
       Height = 41
       Caption = '9'
@@ -250,10 +259,11 @@ object Form1: TForm1
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 7
+      OnClick = NumberClick
     end
-    object Button10: TButton
+    object btnAdd: TButton
       Left = 253
-      Top = 78
+      Top = 86
       Width = 75
       Height = 41
       Caption = '+'
@@ -265,9 +275,9 @@ object Form1: TForm1
       ParentFont = False
       TabOrder = 8
     end
-    object Button11: TButton
+    object btn4: TButton
       Left = 10
-      Top = 125
+      Top = 132
       Width = 75
       Height = 41
       Caption = '4'
@@ -278,10 +288,11 @@ object Form1: TForm1
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 9
+      OnClick = NumberClick
     end
-    object Button12: TButton
+    object btn5: TButton
       Left = 91
-      Top = 125
+      Top = 132
       Width = 75
       Height = 41
       Caption = '5'
@@ -292,10 +303,11 @@ object Form1: TForm1
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 10
+      OnClick = NumberClick
     end
-    object Button13: TButton
+    object btn6: TButton
       Left = 172
-      Top = 125
+      Top = 132
       Width = 75
       Height = 41
       Caption = '6'
@@ -306,10 +318,11 @@ object Form1: TForm1
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 11
+      OnClick = NumberClick
     end
-    object Button14: TButton
+    object btnMinus: TButton
       Left = 253
-      Top = 125
+      Top = 132
       Width = 75
       Height = 41
       Caption = '-'
@@ -321,9 +334,9 @@ object Form1: TForm1
       ParentFont = False
       TabOrder = 12
     end
-    object Button15: TButton
+    object btn1: TButton
       Left = 10
-      Top = 172
+      Top = 177
       Width = 75
       Height = 41
       Caption = '1'
@@ -334,10 +347,11 @@ object Form1: TForm1
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 13
+      OnClick = NumberClick
     end
-    object Button16: TButton
+    object btn2: TButton
       Left = 91
-      Top = 172
+      Top = 177
       Width = 75
       Height = 41
       Caption = '2'
@@ -348,10 +362,11 @@ object Form1: TForm1
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 14
+      OnClick = NumberClick
     end
-    object Button17: TButton
+    object btn3: TButton
       Left = 172
-      Top = 172
+      Top = 177
       Width = 75
       Height = 41
       Caption = '3'
@@ -362,10 +377,11 @@ object Form1: TForm1
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 15
+      OnClick = NumberClick
     end
-    object Button18: TButton
+    object btnMultiply: TButton
       Left = 253
-      Top = 172
+      Top = 177
       Width = 75
       Height = 41
       Caption = '*'
@@ -959,9 +975,9 @@ object Form1: TForm1
       TabOrder = 0
     end
   end
-  object Button19: TButton
+  object btn0: TButton
     Left = 908
-    Top = 671
+    Top = 673
     Width = 75
     Height = 41
     Caption = '0'
@@ -972,10 +988,11 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 9
+    OnClick = NumberClick
   end
-  object Button20: TButton
+  object btnPoint: TButton
     Left = 989
-    Top = 671
+    Top = 673
     Width = 75
     Height = 41
     Caption = '.'
@@ -987,9 +1004,9 @@ object Form1: TForm1
     ParentFont = False
     TabOrder = 10
   end
-  object Button21: TButton
+  object btnEqual: TButton
     Left = 1070
-    Top = 671
+    Top = 673
     Width = 75
     Height = 41
     Caption = '='
@@ -1001,9 +1018,9 @@ object Form1: TForm1
     ParentFont = False
     TabOrder = 11
   end
-  object Button22: TButton
+  object btnDivide: TButton
     Left = 1151
-    Top = 671
+    Top = 673
     Width = 75
     Height = 41
     Caption = '/'

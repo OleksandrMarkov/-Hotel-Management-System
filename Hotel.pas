@@ -24,23 +24,23 @@ type
     Label2: TLabel;
     btnConvert: TButton;
     btnClose: TButton;
-    Edit2: TEdit;
+    txtEDisplay: TEdit;
     Button6: TButton;
     Button3: TButton;
     Button4: TButton;
     Button5: TButton;
-    Button7: TButton;
-    Button8: TButton;
-    Button9: TButton;
-    Button10: TButton;
-    Button11: TButton;
-    Button12: TButton;
-    Button13: TButton;
-    Button14: TButton;
-    Button15: TButton;
-    Button16: TButton;
-    Button17: TButton;
-    Button18: TButton;
+    btn7: TButton;
+    btn8: TButton;
+    btn9: TButton;
+    btnAdd: TButton;
+    btn4: TButton;
+    btn5: TButton;
+    btn6: TButton;
+    btnMinus: TButton;
+    btn1: TButton;
+    btn2: TButton;
+    btn3: TButton;
+    btnMultiply: TButton;
     Label3: TLabel;
     txtECustomer: TEdit;
     Label4: TLabel;
@@ -82,15 +82,16 @@ type
     txtEPostCode: TEdit;
     txtEMobile: TEdit;
     txtEEmail: TEdit;
-    Button19: TButton;
-    Button20: TButton;
-    Button21: TButton;
-    Button22: TButton;
+    btn0: TButton;
+    btnPoint: TButton;
+    btnEqual: TButton;
+    btnDivide: TButton;
     cmbNationality: TComboBox;
     cmbTypeOfRoom: TComboBox;
     cmbRoomNo: TComboBox;
     cmbGender: TComboBox;
     cmbIdentity: TComboBox;
+    procedure NumberClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -103,5 +104,21 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TForm1.NumberClick(Sender: TObject);
+  var btn: TButton;
+begin
+  btn := Sender as TButton;
+
+  if txtEDisplay.Text = '0' then
+  begin
+    txtEDisplay.Text := btn.Caption;
+  end
+  else
+  begin
+    txtEDisplay.Text := txtEDisplay.Text + btn.Caption;
+  end;
+
+end;
 
 end.
