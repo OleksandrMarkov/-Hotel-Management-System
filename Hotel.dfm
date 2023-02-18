@@ -160,7 +160,7 @@ object Form1: TForm1
       TabOrder = 0
       Text = '0'
     end
-    object Button6: TButton
+    object btnPM: TButton
       Left = 253
       Top = 39
       Width = 75
@@ -173,8 +173,9 @@ object Form1: TForm1
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 1
+      OnClick = btnPMClick
     end
-    object Button3: TButton
+    object btnCC: TButton
       Left = 172
       Top = 39
       Width = 75
@@ -187,8 +188,9 @@ object Form1: TForm1
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 2
+      OnClick = btnCCClick
     end
-    object Button4: TButton
+    object btnCE: TButton
       Left = 91
       Top = 39
       Width = 75
@@ -201,6 +203,7 @@ object Form1: TForm1
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 3
+      OnClick = btnCEClick
     end
     object btnBS: TButton
       Left = 10

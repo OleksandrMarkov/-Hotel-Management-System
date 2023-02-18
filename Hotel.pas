@@ -25,9 +25,9 @@ type
     btnConvert: TButton;
     btnClose: TButton;
     txtEDisplay: TEdit;
-    Button6: TButton;
-    Button3: TButton;
-    Button4: TButton;
+    btnPM: TButton;
+    btnCC: TButton;
+    btnCE: TButton;
     btnBS: TButton;
     btn7: TButton;
     btn8: TButton;
@@ -93,6 +93,9 @@ type
     cmbIdentity: TComboBox;
     procedure NumberClick(Sender: TObject);
     procedure btnBSClick(Sender: TObject);
+    procedure btnCCClick(Sender: TObject);
+    procedure btnCEClick(Sender: TObject);
+    procedure btnPMClick(Sender: TObject);
   private
     { Private declarations }
     firstNum, secondNum, answer : string;
@@ -115,6 +118,34 @@ implementation
 procedure TForm1.btnBSClick(Sender: TObject);
 begin
   txtEDisplay.Text := copy(txtEDisplay.Text, 1, length(txtEDisplay.Text)- 1);
+
+  if txtEDisplay.Text = '' then
+    txtEDisplay.Text := '0';
+end;
+
+procedure TForm1.btnCCClick(Sender: TObject);
+begin
+  txtEDisplay.Text := '0';
+end;
+
+procedure TForm1.btnCEClick(Sender: TObject);
+var first, second : string;
+begin
+  txtEDisplay.Text := '0';
+
+  first := firstNum;
+  second := secondNum;
+
+  first := '';
+  second := '';
+
+end;
+
+procedure TForm1.btnPMClick(Sender: TObject);
+var plusMinus : real;
+begin
+  plusMinus := StrToFloat(txtEDisplay.Text);
+  txtEDisplay.Text := FloatToStr(-1 * plusMinus);
 end;
 
 procedure TForm1.NumberClick(Sender: TObject);
