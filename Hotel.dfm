@@ -32,7 +32,7 @@ object Form1: TForm1
     Top = 8
     Width = 1268
     Height = 737
-    ActivePage = TabSheet1
+    ActivePage = TabSheet2
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = 'Hotel system'
@@ -1104,5 +1104,140 @@ object Form1: TForm1
     ParentFont = False
     TabOrder = 12
     OnClick = btnDivideClick
+  end
+  object DBGrid1: TDBGrid
+    Left = 14
+    Top = 33
+    Width = 1189
+    Height = 535
+    TabOrder = 13
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'FirstName'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Surname'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Address'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'PostCode'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Mobile'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Email'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Nationality'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'DDB'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Gender'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Prove'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'DateIn'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'DateOut'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'TotalDays'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'RmType'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'RmNo'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Ext'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'SubTotal'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Tax'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'TotalCost'
+        Visible = True
+      end>
+  end
+  object ADOConnection1: TADOConnection
+    Connected = True
+    ConnectionString = 
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\ALEX\Docum' +
+      'ents\Embarcadero\Studio\Projects\Hotel-management\Hotel.mdb;Mode' +
+      '=ReadWrite;Persist Security Info=False;Jet OLEDB:System database' +
+      '="";Jet OLEDB:Registry Path="";Jet OLEDB:Database Password="";Je' +
+      't OLEDB:Engine Type=5;Jet OLEDB:Database Locking Mode=1;Jet OLED' +
+      'B:Global Partial Bulk Ops=2;Jet OLEDB:Global Bulk Transactions=1' +
+      ';Jet OLEDB:New Database Password="";Jet OLEDB:Create System Data' +
+      'base=False;Jet OLEDB:Encrypt Database=False;Jet OLEDB:Don'#39't Copy' +
+      ' Locale on Compact=False;Jet OLEDB:Compact Without Replica Repai' +
+      'r=False;Jet OLEDB:SFP=False'
+    LoginPrompt = False
+    Mode = cmReadWrite
+    Provider = 'Microsoft.Jet.OLEDB.4.0'
+    Left = 96
+    Top = 144
+  end
+  object ADOTable1: TADOTable
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    TableName = 'Hotel'
+    Left = 104
+    Top = 208
   end
 end

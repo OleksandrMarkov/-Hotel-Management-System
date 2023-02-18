@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.WinXCalendars,
-  Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.DBCtrls;
+  Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.DBCtrls, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Data.Win.ADODB;
 
 type
   TForm1 = class(TForm)
@@ -93,6 +94,9 @@ type
     btnExit: TButton;
     Panel10: TPanel;
     lblConvert: TLabel;
+    DBGrid1: TDBGrid;
+    ADOConnection1: TADOConnection;
+    ADOTable1: TADOTable;
     procedure NumberClick(Sender: TObject);
     procedure btnBSClick(Sender: TObject);
     procedure btnCCClick(Sender: TObject);
