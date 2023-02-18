@@ -36,11 +36,11 @@ type
     btn4: TButton;
     btn5: TButton;
     btn6: TButton;
-    btnMinus: TButton;
+    btnSubtract: TButton;
     btn1: TButton;
     btn2: TButton;
     btn3: TButton;
-    btnMultiply: TButton;
+    btnMult: TButton;
     Label3: TLabel;
     txtECustomer: TEdit;
     Label4: TLabel;
@@ -55,7 +55,7 @@ type
     Label13: TLabel;
     Label14: TLabel;
     txtECurrentDate: TEdit;
-    txtETotalNoofDays: TEdit;
+    txtETotalDays: TEdit;
     txtELastRentDate: TEdit;
     Panel4: TPanel;
     Label15: TLabel;
@@ -83,19 +83,30 @@ type
     txtEMobile: TEdit;
     txtEEmail: TEdit;
     btn0: TButton;
-    btnPoint: TButton;
-    btnEqual: TButton;
+    btnDot: TButton;
+    btnEquals: TButton;
     btnDivide: TButton;
     cmbNationality: TComboBox;
     cmbTypeOfRoom: TComboBox;
     cmbRoomNo: TComboBox;
     cmbGender: TComboBox;
     cmbIdentity: TComboBox;
+    Button1: TButton;
+    btnExit: TButton;
     procedure NumberClick(Sender: TObject);
     procedure btnBSClick(Sender: TObject);
     procedure btnCCClick(Sender: TObject);
     procedure btnCEClick(Sender: TObject);
     procedure btnPMClick(Sender: TObject);
+    procedure btnAddClick(Sender: TObject);
+    procedure btnSubtractClick(Sender: TObject);
+    procedure btnMultClick(Sender: TObject);
+    procedure btnDivideClick(Sender: TObject);
+    procedure btnDotClick(Sender: TObject);
+    procedure btnEqualsClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure CalendarView1Change(Sender: TObject);
+    procedure btnExitClick(Sender: TObject);
   private
     { Private declarations }
     firstNum, secondNum, answer : string;
@@ -114,8 +125,16 @@ implementation
 
 {$R *.dfm}
 
-// remove last symbol
+
+procedure TForm1.btnAddClick(Sender: TObject);
+begin
+  firstNum := txtEDisplay.Text;
+  op := '+';
+  txtEDisplay.Text := '';
+end;
+
 procedure TForm1.btnBSClick(Sender: TObject);
+// remove last symbol
 begin
   txtEDisplay.Text := copy(txtEDisplay.Text, 1, length(txtEDisplay.Text)- 1);
 
@@ -141,11 +160,97 @@ begin
 
 end;
 
+procedure TForm1.btnDivideClick(Sender: TObject);
+begin
+  firstNum := txtEDisplay.Text;
+  op := '/';
+  txtEDisplay.Text := '';
+end;
+
+procedure TForm1.btnDotClick(Sender: TObject);
+begin
+  // if the dot already exists (e.g. 234.567) then you can`t add a new dot.
+  if (POS('.', txtEDisplay.Text) <> 0) then
+    exit
+  else
+    txtEDisplay.Text := txtEDisplay.Text + btnDot.Caption;
+
+  //firstNum := txtEDisplay.Text;
+  //op := '+';
+  //txtEDisplay.Text := '';
+end;
+
+procedure TForm1.btnEqualsClick(Sender: TObject);
+begin
+  secondNum := txtEDisplay.Text;
+
+  if op = '+' then
+    answer := FloatToStr(StrToFloat(firstNum) + StrToFloat(secondNum));
+    txtEDisplay.Text := answer;
+
+  if op = '-' then
+    answer := FloatToStr(StrToFloat(firstNum) - StrToFloat(secondNum));
+    txtEDisplay.Text := answer;
+
+  if op = '*' then
+    answer := FloatToStr(StrToFloat(firstNum) * StrToFloat(secondNum));
+    txtEDisplay.Text := answer;
+
+  if op = '/' then
+    if  StrToFloat(secondNum) <> 0 then
+      begin
+        answer := FloatToStr(StrToFloat(firstNum) / StrToFloat(secondNum));
+        txtEDisplay.Text := answer;
+      end
+    else
+      txtEDisplay.Text := 'Division by zero!';
+end;
+
+procedure TForm1.btnExitClick(Sender: TObject);
+begin
+  if MessageDlg('Confirm if you want to exit',
+  mtConfirmation, [mbYes, mbNo], 0, mbYes) = mrYes then
+    begin
+      Application.Terminate;
+    end
+end;
+
+procedure TForm1.btnMultClick(Sender: TObject);
+begin
+  firstNum := txtEDisplay.Text;
+  op := '*';
+  txtEDisplay.Text := '';
+end;
+
 procedure TForm1.btnPMClick(Sender: TObject);
 var plusMinus : real;
 begin
   plusMinus := StrToFloat(txtEDisplay.Text);
   txtEDisplay.Text := FloatToStr(-1 * plusMinus);
+end;
+
+procedure TForm1.btnSubtractClick(Sender: TObject);
+begin
+  firstNum := txtEDisplay.Text;
+  op := '-';
+  txtEDisplay.Text := '';
+end;
+
+procedure TForm1.CalendarView1Change(Sender: TObject);
+begin
+  txtELastRentDate.Text := DateToStr(CalendarView1.Date);
+
+  txtETotalDays.Text := FloatToStr(StrToDate(txtELastRentDate.Text) -
+  StrToDate(txtECurrentDate.Text));
+
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+  var currentDate : TDateTime;
+begin
+  currentDate := Now;
+  txtECurrentDate.Text := (DateToStr(currentDate));
+
 end;
 
 procedure TForm1.NumberClick(Sender: TObject);

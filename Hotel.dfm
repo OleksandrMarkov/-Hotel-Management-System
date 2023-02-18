@@ -2,7 +2,7 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Hotel management system'
-  ClientHeight = 746
+  ClientHeight = 752
   ClientWidth = 1284
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -11,6 +11,7 @@ object Form1: TForm1
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object Label6: TLabel
@@ -64,6 +65,7 @@ object Form1: TForm1
           HeaderInfo.Font.Height = -20
           HeaderInfo.Font.Name = 'Segoe UI'
           HeaderInfo.Font.Style = []
+          OnChange = CalendarView1Change
           ParentFont = False
           TabOrder = 0
         end
@@ -76,9 +78,9 @@ object Form1: TForm1
   end
   object Panel2: TPanel
     Left = 898
-    Top = 244
+    Top = 247
     Width = 369
-    Height = 202
+    Height = 219
     Color = cl3DLight
     ParentBackground = False
     TabOrder = 1
@@ -127,6 +129,13 @@ object Form1: TForm1
       Top = 143
       Width = 113
       Height = 41
+      Caption = 'Convert'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -24
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 2
     end
     object btnClose: TButton
@@ -134,14 +143,21 @@ object Form1: TForm1
       Top = 143
       Width = 113
       Height = 41
+      Caption = 'Close'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -24
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 3
     end
   end
   object Panel3: TPanel
     Left = 898
-    Top = 452
+    Top = 472
     Width = 369
-    Height = 269
+    Height = 266
     Color = cl3DLight
     ParentBackground = False
     TabOrder = 2
@@ -211,7 +227,7 @@ object Form1: TForm1
       Width = 75
       Height = 41
       ParentCustomHint = False
-      Caption = 'back'
+      Caption = '<='
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -19
@@ -279,6 +295,7 @@ object Form1: TForm1
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 8
+      OnClick = btnAddClick
     end
     object btn4: TButton
       Left = 10
@@ -325,7 +342,7 @@ object Form1: TForm1
       TabOrder = 11
       OnClick = NumberClick
     end
-    object btnMinus: TButton
+    object btnSubtract: TButton
       Left = 253
       Top = 132
       Width = 75
@@ -338,6 +355,7 @@ object Form1: TForm1
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 12
+      OnClick = btnSubtractClick
     end
     object btn1: TButton
       Left = 10
@@ -384,7 +402,7 @@ object Form1: TForm1
       TabOrder = 15
       OnClick = NumberClick
     end
-    object btnMultiply: TButton
+    object btnMult: TButton
       Left = 253
       Top = 177
       Width = 75
@@ -397,6 +415,7 @@ object Form1: TForm1
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 16
+      OnClick = btnMultClick
     end
   end
   object Panel7: TPanel
@@ -620,53 +639,53 @@ object Form1: TForm1
     Left = 8
     Top = 471
     Width = 441
-    Height = 250
+    Height = 170
     Color = cl3DLight
     ParentBackground = False
     TabOrder = 4
     object Label12: TLabel
-      Left = 32
-      Top = 24
-      Width = 163
-      Height = 35
+      Left = 4
+      Top = 16
+      Width = 152
+      Height = 33
       Caption = 'Current Date'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -29
+      Font.Height = -27
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
     end
     object Label13: TLabel
-      Left = 32
-      Top = 88
-      Width = 189
-      Height = 35
+      Left = 4
+      Top = 72
+      Width = 174
+      Height = 33
       Caption = 'Last Rent Date'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -29
+      Font.Height = -27
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
     end
     object Label14: TLabel
-      Left = 32
-      Top = 160
-      Width = 214
-      Height = 35
+      Left = 4
+      Top = 113
+      Width = 198
+      Height = 33
       Caption = 'Total No of Days'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -29
+      Font.Height = -27
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
     end
     object txtECurrentDate: TEdit
-      Left = 264
-      Top = 16
-      Width = 121
+      Left = 220
+      Top = 8
+      Width = 209
       Height = 43
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -676,10 +695,10 @@ object Form1: TForm1
       ParentFont = False
       TabOrder = 0
     end
-    object txtETotalNoofDays: TEdit
-      Left = 264
-      Top = 160
-      Width = 121
+    object txtETotalDays: TEdit
+      Left = 220
+      Top = 113
+      Width = 209
       Height = 43
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -690,9 +709,9 @@ object Form1: TForm1
       TabOrder = 1
     end
     object txtELastRentDate: TEdit
-      Left = 264
-      Top = 80
-      Width = 121
+      Left = 220
+      Top = 64
+      Width = 209
       Height = 43
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -707,13 +726,13 @@ object Form1: TForm1
     Left = 455
     Top = 32
     Width = 437
-    Height = 177
+    Height = 194
     Color = cl3DLight
     ParentBackground = False
     TabOrder = 5
     object Label15: TLabel
       Left = 16
-      Top = 24
+      Top = 37
       Width = 179
       Height = 35
       Caption = 'Type of Room'
@@ -726,7 +745,7 @@ object Form1: TForm1
     end
     object Label16: TLabel
       Left = 16
-      Top = 68
+      Top = 81
       Width = 127
       Height = 35
       Caption = 'Room No.'
@@ -738,8 +757,8 @@ object Form1: TForm1
       ParentFont = False
     end
     object Label17: TLabel
-      Left = 8
-      Top = 124
+      Left = 16
+      Top = 127
       Width = 176
       Height = 35
       Caption = 'Room Ext. No'
@@ -752,7 +771,7 @@ object Form1: TForm1
     end
     object txtERoomExtNo: TEdit
       Left = 216
-      Top = 124
+      Top = 127
       Width = 209
       Height = 43
       Font.Charset = DEFAULT_CHARSET
@@ -765,7 +784,7 @@ object Form1: TForm1
     end
     object cmbTypeOfRoom: TComboBox
       Left = 217
-      Top = 18
+      Top = 31
       Width = 209
       Height = 41
       Font.Charset = DEFAULT_CHARSET
@@ -778,7 +797,7 @@ object Form1: TForm1
     end
     object cmbRoomNo: TComboBox
       Left = 216
-      Top = 67
+      Top = 80
       Width = 209
       Height = 41
       Font.Charset = DEFAULT_CHARSET
@@ -792,9 +811,9 @@ object Form1: TForm1
   end
   object Panel5: TPanel
     Left = 455
-    Top = 215
+    Top = 247
     Width = 437
-    Height = 177
+    Height = 174
     Color = cl3DLight
     ParentBackground = False
     TabOrder = 6
@@ -879,15 +898,15 @@ object Form1: TForm1
   end
   object Panel6: TPanel
     Left = 455
-    Top = 398
+    Top = 440
     Width = 437
-    Height = 177
+    Height = 200
     Color = cl3DLight
     ParentBackground = False
     TabOrder = 7
     object Label21: TLabel
       Left = 32
-      Top = 24
+      Top = 44
       Width = 122
       Height = 35
       Caption = 'Sub Total'
@@ -900,7 +919,7 @@ object Form1: TForm1
     end
     object Label22: TLabel
       Left = 32
-      Top = 68
+      Top = 85
       Width = 46
       Height = 35
       Caption = 'Tax'
@@ -913,7 +932,7 @@ object Form1: TForm1
     end
     object Label23: TLabel
       Left = 32
-      Top = 117
+      Top = 134
       Width = 65
       Height = 35
       Caption = 'Total'
@@ -925,9 +944,9 @@ object Form1: TForm1
       ParentFont = False
     end
     object txtESubTotal: TEdit
-      Left = 264
-      Top = 16
-      Width = 121
+      Left = 216
+      Top = 33
+      Width = 209
       Height = 43
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -938,9 +957,9 @@ object Form1: TForm1
       TabOrder = 0
     end
     object txtETotal: TEdit
-      Left = 264
-      Top = 114
-      Width = 121
+      Left = 216
+      Top = 131
+      Width = 209
       Height = 43
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -951,9 +970,9 @@ object Form1: TForm1
       TabOrder = 1
     end
     object txtETax: TEdit
-      Left = 264
-      Top = 65
-      Width = 121
+      Left = 216
+      Top = 82
+      Width = 209
       Height = 43
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -965,24 +984,53 @@ object Form1: TForm1
     end
   end
   object Panel9: TPanel
-    Left = 455
-    Top = 581
-    Width = 437
-    Height = 140
+    Left = 12
+    Top = 646
+    Width = 880
+    Height = 92
     Color = cl3DLight
     ParentBackground = False
     TabOrder = 8
     object DBNavigator1: TDBNavigator
-      Left = 32
-      Top = 48
-      Width = 380
+      Left = 15
+      Top = 16
+      Width = 440
       Height = 65
       TabOrder = 0
+    end
+    object Button1: TButton
+      Left = 475
+      Top = 16
+      Width = 174
+      Height = 65
+      Caption = 'Total'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -27
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 1
+    end
+    object btnExit: TButton
+      Left = 694
+      Top = 16
+      Width = 174
+      Height = 65
+      Caption = 'Exit'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -27
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 2
+      OnClick = btnExitClick
     end
   end
   object btn0: TButton
     Left = 908
-    Top = 673
+    Top = 694
     Width = 75
     Height = 41
     Caption = '0'
@@ -995,9 +1043,9 @@ object Form1: TForm1
     TabOrder = 9
     OnClick = NumberClick
   end
-  object btnPoint: TButton
+  object btnDot: TButton
     Left = 989
-    Top = 673
+    Top = 694
     Width = 75
     Height = 41
     Caption = '.'
@@ -1008,10 +1056,11 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 10
+    OnClick = btnDotClick
   end
-  object btnEqual: TButton
+  object btnEquals: TButton
     Left = 1070
-    Top = 673
+    Top = 694
     Width = 75
     Height = 41
     Caption = '='
@@ -1022,10 +1071,11 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 11
+    OnClick = btnEqualsClick
   end
   object btnDivide: TButton
     Left = 1151
-    Top = 673
+    Top = 694
     Width = 75
     Height = 41
     Caption = '/'
@@ -1036,5 +1086,6 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 12
+    OnClick = btnDivideClick
   end
 end
