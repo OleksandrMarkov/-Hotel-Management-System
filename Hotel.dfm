@@ -31,8 +31,8 @@ object Form1: TForm1
     Left = 8
     Top = 8
     Width = 1268
-    Height = 737
-    ActivePage = TabSheet2
+    Height = 601
+    ActivePage = TabSheet1
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = 'Hotel system'
@@ -1013,6 +1013,7 @@ object Form1: TForm1
       Top = 16
       Width = 440
       Height = 65
+      DataSource = DataSource1
       TabOrder = 0
     end
     object Button1: TButton
@@ -1106,10 +1107,11 @@ object Form1: TForm1
     OnClick = btnDivideClick
   end
   object DBGrid1: TDBGrid
-    Left = 14
-    Top = 33
-    Width = 1189
-    Height = 535
+    Left = 8
+    Top = 32
+    Width = 1259
+    Height = 703
+    DataSource = DataSource1
     TabOrder = 13
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -1118,43 +1120,58 @@ object Form1: TForm1
     TitleFont.Style = []
     Columns = <
       item
+        Alignment = taLeftJustify
+        Expanded = False
+        FieldName = 'CustomerID'
+        Width = 60
+        Visible = True
+      end
+      item
         Expanded = False
         FieldName = 'FirstName'
+        Width = 50
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Surname'
+        Width = 50
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Address'
+        Width = 70
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'PostCode'
+        Width = 50
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Mobile'
+        Width = 70
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Email'
+        Width = 125
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Nationality'
+        Width = 55
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'DDB'
+        Width = 60
         Visible = True
       end
       item
@@ -1165,51 +1182,66 @@ object Form1: TForm1
       item
         Expanded = False
         FieldName = 'Prove'
+        Width = 70
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'DateIn'
+        Width = 60
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'DateOut'
+        Width = 60
         Visible = True
       end
       item
+        Alignment = taLeftJustify
         Expanded = False
         FieldName = 'TotalDays'
+        Width = 55
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'RmType'
+        Width = 45
         Visible = True
       end
       item
+        Alignment = taLeftJustify
         Expanded = False
         FieldName = 'RmNo'
+        Width = 35
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Ext'
+        Width = 55
         Visible = True
       end
       item
+        Alignment = taLeftJustify
         Expanded = False
         FieldName = 'SubTotal'
+        Width = 45
         Visible = True
       end
       item
+        Alignment = taLeftJustify
         Expanded = False
         FieldName = 'Tax'
+        Width = 25
         Visible = True
       end
       item
+        Alignment = taLeftJustify
         Expanded = False
         FieldName = 'TotalCost'
+        Width = 50
         Visible = True
       end>
   end
@@ -1218,26 +1250,24 @@ object Form1: TForm1
     ConnectionString = 
       'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\ALEX\Docum' +
       'ents\Embarcadero\Studio\Projects\Hotel-management\Hotel.mdb;Mode' +
-      '=ReadWrite;Persist Security Info=False;Jet OLEDB:System database' +
-      '="";Jet OLEDB:Registry Path="";Jet OLEDB:Database Password="";Je' +
-      't OLEDB:Engine Type=5;Jet OLEDB:Database Locking Mode=1;Jet OLED' +
-      'B:Global Partial Bulk Ops=2;Jet OLEDB:Global Bulk Transactions=1' +
-      ';Jet OLEDB:New Database Password="";Jet OLEDB:Create System Data' +
-      'base=False;Jet OLEDB:Encrypt Database=False;Jet OLEDB:Don'#39't Copy' +
-      ' Locale on Compact=False;Jet OLEDB:Compact Without Replica Repai' +
-      'r=False;Jet OLEDB:SFP=False'
+      '=ReadWrite;Persist Security Info=False'
     LoginPrompt = False
     Mode = cmReadWrite
     Provider = 'Microsoft.Jet.OLEDB.4.0'
-    Left = 96
-    Top = 144
+    Left = 176
+    Top = 104
   end
   object ADOTable1: TADOTable
     Active = True
     Connection = ADOConnection1
     CursorType = ctStatic
     TableName = 'Hotel'
-    Left = 104
-    Top = 208
+    Left = 176
+    Top = 168
+  end
+  object DataSource1: TDataSource
+    DataSet = ADOTable1
+    Left = 176
+    Top = 224
   end
 end

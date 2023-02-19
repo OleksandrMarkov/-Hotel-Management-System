@@ -94,9 +94,10 @@ type
     btnExit: TButton;
     Panel10: TPanel;
     lblConvert: TLabel;
-    DBGrid1: TDBGrid;
     ADOConnection1: TADOConnection;
     ADOTable1: TADOTable;
+    DataSource1: TDataSource;
+    DBGrid1: TDBGrid;
     procedure NumberClick(Sender: TObject);
     procedure btnBSClick(Sender: TObject);
     procedure btnCCClick(Sender: TObject);
@@ -324,7 +325,6 @@ begin
   txtECurrentDate.Text := (DateToStr(currentDate));
 
   reset;
-
 end;
 
 procedure TForm1.NumberClick(Sender: TObject);
